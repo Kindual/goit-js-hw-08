@@ -23,10 +23,20 @@ function setInput(event) {
 
 function submitForm(event) {
     event.preventDefault();
+
+    if (formData.email === '' || formData.message.trim() === '') {
+        return alert('Заповніть всі поля форми!');
+    };
+
     console.log(formData);
 
+    formData = {
+    email: '',
+    message: '',
+}
     localStorage.removeItem('feedback-form-state');
     event.target.reset();
+    
 }
 
 
